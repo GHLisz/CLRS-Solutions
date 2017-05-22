@@ -1,0 +1,1 @@
+The smallest value and its index: (smallest_index, smallest_index, smallest_value)

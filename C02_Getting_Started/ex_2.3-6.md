@@ -1,0 +1,1 @@
+NO, because moving the elements requires Θ(n), resulting Θ(n^2) total.
