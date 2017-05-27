@@ -8,9 +8,7 @@ class Stack:
         self.top = -1
 
     def stack_empty(self):
-        if self.top == -1:
-            return True
-        return False
+        return self.top == -1
 
     def push(self, x):
         self.top += 1
