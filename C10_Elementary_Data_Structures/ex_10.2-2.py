@@ -16,7 +16,6 @@ class SinglyLinkedList:
 class Stack:
     def __init__(self):
         self.L = SinglyLinkedList(None)
-        self.cur = self.L.head
 
     def stack_empty(self):
         return self.L.head.next is None
