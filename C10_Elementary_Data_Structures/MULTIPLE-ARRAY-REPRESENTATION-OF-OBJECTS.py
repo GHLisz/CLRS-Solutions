@@ -2,11 +2,26 @@ import unittest
 
 
 class DoublyLinkedList:
-    def __init__(self, key):
-        self.head = 0
-        self.key_array = [key, ]
-        self.next_array = [-1, ]
-        self.prev_array = [-1, ]
+    def __init__(self):
+        self.head = -1
+        self.free = 0
+        self.key_array = [0 for _ in range(10)]
+        self.next_array = [i+1 for i in range(10)]
+        self.next_array[-1] = -1
+        self.prev_array = [0 for _ in range(10)]
+
+
+def allocate_object(L):
+    if L.free == -1:
+        raise Exception('out of space')
+    x = L.free
+    L.free = L.next_array[x]
+    return x
+
+
+def free_object(L, x):
+    L.next_array[x] = L.free
+    L.free = x
 
 
 def list_search(L, k):
@@ -20,12 +35,14 @@ def list_search(L, k):
 
 
 def list_insert(L, key):
-    L.key_array.append(key)
-    L.next_array.append(L.head)
-    L.prev_array.append(-1)
+    x = allocate_object(L)
+    L.key_array[x] = key
+    L.next_array[x] = L.head
+    L.prev_array[x] = -1
 
-    L.head = len(L.key_array) - 1
-    L.prev_array[L.next_array[L.head]] = L.head
+    if L.head != -1:
+        L.prev_array[L.head] = x
+    L.head = x
 
 
 def list_delete(L, x):
@@ -35,12 +52,14 @@ def list_delete(L, x):
         L.head = L.next_array[x]
     if L.next_array[x] != -1:
         L.prev_array[L.next_array[x]] = L.prev_array[x]
+    free_object(L, x)
 
 
 class ProblemTestCase(unittest.TestCase):
     @staticmethod
     def list_to_str(L):
         print(L.head)
+        print(L.free)
         print(L.next_array)
         print(L.key_array)
         print(L.prev_array)
@@ -54,7 +73,8 @@ class ProblemTestCase(unittest.TestCase):
         return ' '.join(map(str, keys))
 
     def test_case(self):
-        L = DoublyLinkedList(1)
+        L = DoublyLinkedList()
+        list_insert(L, 1)
         self.assertEqual(self.list_to_str(L), '1')
         list_insert(L, 2)
         self.assertEqual(self.list_to_str(L), '2 1')
@@ -64,7 +84,8 @@ class ProblemTestCase(unittest.TestCase):
         self.assertEqual(self.list_to_str(L), '4 3 2 1')
         list_insert(L, 5)
         self.assertEqual(self.list_to_str(L), '5 4 3 2 1')
-        list_delete(L, 2)
+        x = list_search(L, 3)
+        list_delete(L, x)
         self.assertEqual(self.list_to_str(L), '5 4 2 1')
 
 if __name__ == '__main__':
