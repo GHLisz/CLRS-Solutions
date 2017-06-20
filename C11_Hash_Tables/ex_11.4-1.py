@@ -21,7 +21,7 @@ class OpenAddressing:
     def h(self, k, i):
         raise NotImplementedError
 
-    def insert(self, key):
+    def hash_insert(self, key):
         global m
         i = 0
         while True:
@@ -64,9 +64,9 @@ class ProblemTestCase(unittest.TestCase):
         q = QuadraticProbing()
         d = DoubleHashing()
         for v in a:
-            l.insert(v)
-            q.insert(v)
-            d.insert(v)
+            l.hash_insert(v)
+            q.hash_insert(v)
+            d.hash_insert(v)
         self.assertEqual(l.slots, [22, 88, None, None, 4, 15, 28, 17, 59, 31, 10])
         self.assertEqual(q.slots, [22, None, 88, 17, 4, None, 28, 59, 15, 31, 10])
         self.assertEqual(d.slots, [22, None, 59, 17, 4, 15, 28, 88, None, 31, 10])
