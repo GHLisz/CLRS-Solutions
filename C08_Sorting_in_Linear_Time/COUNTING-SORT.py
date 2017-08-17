@@ -7,9 +7,11 @@ def counting_sort(A, k):
     C = [0 for _ in range(k+1)]
     for num in A:
         C[num] = C[num] + 1
+    # C[i] now contains the number of elements equal to i.
     for i in range(k):
         C[i+1] = C[i+1] + C[i]
-    for num in reversed(A):
+    # C[i] now contains the number of elements less than or equal to i.
+    for num in A:  # reversed(A):
         B[C[num]-1] = num  # !!! -1
         C[num] -= 1
     return B
