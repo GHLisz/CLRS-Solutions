@@ -40,11 +40,40 @@ def rb_insert_fixup(T, z):
             pass
 
 
+def left_rotate(T, x):
+    y = x.right
 
-def left_rotate(T, z):
-    pass
+    x.right = y.left
+    if y.left:
+        y.left.p = x
+
+    y.p = x.p
+    if not x.p:
+        T.root = y
+    elif x == x.p.left:
+        x.p.left = y
+    else:
+        x.p.right = y
+
+    y.left = x
+    x.p = y
 
 
-def right_rotate(T, z):
-    pass
+def right_rotate(T, y):
+    x = y.left
+
+    y.left = x.right
+    if x.right:
+        x.right.p = y
+
+    x.p = y.p
+    if not y.p:
+        T.root = x
+    elif y == y.p.left:
+        y.p.left = x
+    else:
+        y.p.right = x
+
+    x.right = y
+    y.p = x
 
