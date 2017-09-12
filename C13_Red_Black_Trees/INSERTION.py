@@ -2,6 +2,20 @@ RED = True
 BLACK = False
 
 
+class Node:
+    def __init__(self, key):
+        self.key = key
+        self.color = BLACK
+        self.p = None
+        self.left = None
+        self.right = None
+
+
+class Tree:
+    def __init__(self, root=None):
+        self.root = root
+
+
 def rb_insert(T, z):
     y = T.nil
     x = T.root
