@@ -44,17 +44,17 @@ def rb_delete(T, z):
     else:
         y = tree_minimum(z.right)
         y_original_color = y.color
-    x = y.right
-    if y.p == z:
-        x.p = y
-    else:
-        rb_transplant(T, y, y.right)
-        y.right = z.right
-        y.right.p = y
-    rb_transplant(T, z, y)
-    y.left = z.left
-    y.left.p = y
-    y.color = z.color
+        x = y.right
+        if y.p == z:
+            x.p = y
+        else:
+            rb_transplant(T, y, y.right)
+            y.right = z.right
+            y.right.p = y
+        rb_transplant(T, z, y)
+        y.left = z.left
+        y.left.p = y
+        y.color = z.color
     if y_original_color == BLACK:
         rb_delete_fixup(T, x)
 
