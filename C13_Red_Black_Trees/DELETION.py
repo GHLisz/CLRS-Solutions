@@ -83,7 +83,25 @@ def rb_delete_fixup(T, x):
                 left_rotate(T, x.p)
                 x = T.root
         else:
-            pass
+            w = x.p.right
+            if w.color == RED:
+                w.color = BLACK
+                x.p.color = RED
+                right_rotate(T, x.p)
+                w = x.p.left
+            if w.right.color == BLACK and w.left.color == BLACK:
+                w.color = RED
+                x = x.p
+            elif w.left.color == BLACK:
+                w.right.color = BLACK
+                w.color = RED
+                left_rotate(T, w)
+                w = x.p.left
+            w.color = x.p.color
+            x.p.color = BLACK
+            w.left.color = BLACK
+            right_rotate(T, x.p)
+            x = T.root
     x.color = BLACK
 
 
