@@ -38,3 +38,24 @@ def bottom_up_cut_rod(p, n):
             q = max(q, p[i] + r[j-i])
         r[j] = q
     return r[n]
+
+
+def extended_bottom_up_cut_rod(p, n):
+    s = [-math.inf for _ in range(0, n+1)]
+    r = [-math.inf for _ in range(0, n+1)]
+    r[0] = 0
+    for j in range(1, n+1):
+        q = -math.inf
+        for i in range(1, j+1):
+            if q < p[i] + r[j-i]:
+                q = p[i] + r[j-i]
+                s[j] = i
+        r[j] = q
+    return r, s
+
+
+def print_cut_rod_solution(p, n):
+    r, s = extended_bottom_up_cut_rod(p, n)
+    while n > 0:
+        print(s[n])
+        n = n - s[n]
