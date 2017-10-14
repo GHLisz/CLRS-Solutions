@@ -49,6 +49,7 @@ def extended_bottom_up_cut_rod(p, n):
         for i in range(1, j+1):
             if q < p[i] + r[j-i]:
                 q = p[i] + r[j-i]
+                # s[j] holds the optimal size i of the first piece to cut off when solving a subproblem of size j.
                 s[j] = i
         r[j] = q
     return r, s
