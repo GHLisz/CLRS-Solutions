@@ -121,4 +121,3 @@ def right_rotate(T, y):
 
     x.right = y
     y.p = x
-

@@ -66,5 +66,6 @@ class ProblemTestCase(unittest.TestCase):
                     test_stk.append(x)
             self.assertEqual(stk.stack_empty(), len(test_stk) == 0)
 
+
 if __name__ == '__main__':
     unittest.main()

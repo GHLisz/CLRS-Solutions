@@ -9,15 +9,15 @@ def partition(A, p, r):
         if A[j] > x:
             i += 1
             A[j], A[i] = A[i], A[j]
-    A[i+1], A[r] = A[r], A[i+1]
-    return i+1
+    A[i + 1], A[r] = A[r], A[i + 1]
+    return i + 1
 
 
 def quick_sort(A, p, r):
     if p < r:
         q = partition(A, p, r)
-        quick_sort(A, p, q-1)
-        quick_sort(A, q+1, r)
+        quick_sort(A, p, q - 1)
+        quick_sort(A, q + 1, r)
 
 
 class SortTestCase(unittest.TestCase):
@@ -30,7 +30,7 @@ class SortTestCase(unittest.TestCase):
             arr = self.random_array()
             sorted_arr = sorted(arr)
             sorted_arr.reverse()
-            quick_sort(arr, 0, len(arr)-1)
+            quick_sort(arr, 0, len(arr) - 1)
             self.assertEqual(arr, sorted_arr)
 
 

@@ -8,11 +8,11 @@ def parent(i):
 
 
 def left(i):
-    return 2*i + 1
+    return 2 * i + 1
 
 
 def right(i):
-    return 2*i + 2
+    return 2 * i + 2
 
 
 def min_heapify(A, i):
@@ -32,7 +32,7 @@ class MinHeapifyTestCase(unittest.TestCase):
     def test_random(self):
         for _ in range(10000):
             heap = random_min_heap()
-            idx = random.randint(0, len(heap)-1)
+            idx = random.randint(0, len(heap) - 1)
             if idx == 0:
                 heap[0] = random.randint(1, 100)
             else:

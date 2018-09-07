@@ -7,11 +7,11 @@ def parent(i):
 
 
 def left(i):
-    return 2*i + 1
+    return 2 * i + 1
 
 
 def right(i):
-    return 2*i + 2
+    return 2 * i + 2
 
 
 def max_heapify(A, i, heap_size):
@@ -28,14 +28,14 @@ def max_heapify(A, i, heap_size):
 
 def build_max_heap(A):
     heap_size = len(A)
-    for i in range(parent(heap_size-1), -1, -1):
+    for i in range(parent(heap_size - 1), -1, -1):
         max_heapify(A, i, heap_size)
 
 
 def heap_sort(A):
     build_max_heap(A)
     heap_size = len(A)
-    for i in range(len(A)-1, 0, -1):
+    for i in range(len(A) - 1, 0, -1):
         A[0], A[i] = A[i], A[0]
         heap_size -= 1
         max_heapify(A, 0, heap_size)
@@ -58,7 +58,6 @@ class HeapSortTestCase(unittest.TestCase):
             heap_sort(arr)
             self.assertEqual(arr, sorted_arr)
 
+
 if __name__ == '__main__':
     unittest.main()
-
-

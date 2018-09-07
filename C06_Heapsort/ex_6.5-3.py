@@ -8,11 +8,11 @@ def parent(i):
 
 
 def left(i):
-    return 2*i + 1
+    return 2 * i + 1
 
 
 def right(i):
-    return 2*i + 2
+    return 2 * i + 2
 
 
 def min_heapify(A, i):
@@ -51,5 +51,4 @@ def heap_decrease_key(A, i, key):
 
 def min_heap_insert(A, key):
     A.append(math.inf)
-    heap_decrease_key(A, len(A)-1, key)
-
+    heap_decrease_key(A, len(A) - 1, key)

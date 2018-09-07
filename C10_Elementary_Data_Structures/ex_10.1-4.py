@@ -10,7 +10,7 @@ class Queue:
         self.tail = 0
 
     def enqueue(self, x):
-        if (self.tail+1) % self.length == self.head:
+        if (self.tail + 1) % self.length == self.head:
             raise Exception('overflow')
         self.Q[self.tail] = x
         self.tail += 1
@@ -42,6 +42,7 @@ class ProblemTestCase(unittest.TestCase):
         with self.assertRaises(Exception) as context:
             q.enqueue(0)
         self.assertTrue(context.exception.args[0], 'overflow')
+
 
 if __name__ == '__main__':
     unittest.main()

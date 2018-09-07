@@ -28,13 +28,14 @@ class SortTestCase(unittest.TestCase):
     @staticmethod
     def random_array():
         a = [random.randint(0, 99) for _ in range(random.randint(1, 100))]
-        return [i/100 for i in a]
+        return [i / 100 for i in a]
 
     def test_random(self):
         for _ in range(10000):
             arr = self.random_array()
             sorted_arr = sorted(arr)
             self.assertEqual(bucket_sort(arr), sorted_arr)
+
 
 if __name__ == '__main__':
     unittest.main()

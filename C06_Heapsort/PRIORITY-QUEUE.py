@@ -9,11 +9,11 @@ def parent(i):
 
 
 def left(i):
-    return 2*i + 1
+    return 2 * i + 1
 
 
 def right(i):
-    return 2*i + 2
+    return 2 * i + 2
 
 
 def max_heapify(A, i):
@@ -52,7 +52,7 @@ def heap_increase_key(A, i, key):
 
 def max_heap_insert(A, key):
     A.append(-math.inf)
-    heap_increase_key(A, len(A)-1, key)
+    heap_increase_key(A, len(A) - 1, key)
 
 
 class PriorityQueueTestCase(unittest.TestCase):
@@ -62,13 +62,13 @@ class PriorityQueueTestCase(unittest.TestCase):
             heap_size = len(heap)
             self.assertEqual(max(heap), heap_extract_max(heap))
             self.assertTrue(check_max_heap(heap))
-            self.assertEqual(len(heap), heap_size-1)
+            self.assertEqual(len(heap), heap_size - 1)
 
     def test_heap_increase_key(self):
         for _ in range(1000):
             heap = random_max_heap()
             heap_size = len(heap)
-            i = random.randint(0, heap_size-1)
+            i = random.randint(0, heap_size - 1)
             key = random.randint(200, 300)
             heap_increase_key(heap, i, key)
             self.assertTrue(check_max_heap(heap))
@@ -80,7 +80,8 @@ class PriorityQueueTestCase(unittest.TestCase):
             key = random.randint(200, 300)
             max_heap_insert(heap, key)
             self.assertTrue(check_max_heap(heap))
-            self.assertEqual(len(heap), heap_size+1)
+            self.assertEqual(len(heap), heap_size + 1)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -3,11 +3,11 @@ import unittest
 
 
 def binary_search(A, v):
-    low, high = 0, len(A)-1
+    low, high = 0, len(A) - 1
     while low <= high:
         mid = (low + high) // 2
         if A[mid] < v:
-            low = mid + 1    # think about the extra 1
+            low = mid + 1  # think about the extra 1
         elif A[mid] > v:
             high = mid - 1
         else:
@@ -28,6 +28,7 @@ class BinarySearchTestCase(unittest.TestCase):
                 self.assertEqual(val, sorted_arr[val_index])
             else:
                 self.assertIsNone(binary_search(sorted_arr, val))
+
 
 if __name__ == '__main__':
     unittest.main()

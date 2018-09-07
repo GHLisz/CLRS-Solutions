@@ -4,7 +4,7 @@ import unittest
 
 def add_binary(a, b):
     n = len(a)
-    c = [0 for _ in range(n+1)]
+    c = [0 for _ in range(n + 1)]
     carry = 0
     for i in range(n):
         sum = a[i] + b[i] + carry
@@ -37,6 +37,7 @@ class AddBinaryTestCase(unittest.TestCase):
             length = random.randint(1, 100)
             a, b = self.random_bit_list(length), self.random_bit_list(length)
             self.assertEqual(self.bit_list_to_int(add_binary(a, b)), self.bit_list_to_int(a) + self.bit_list_to_int(b))
+
 
 if __name__ == '__main__':
     unittest.main()

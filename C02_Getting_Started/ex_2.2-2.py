@@ -5,16 +5,15 @@ Why first n-1 elements? if there is a nth loop, it will compare a single element
 Best and worst running time are both Θ(n^2)
 '''
 
-
 import random
 import unittest
 
 
 def selection_sort(a):
     n = len(a)
-    for i in range(0, n-1):
+    for i in range(0, n - 1):
         min_index = i
-        for j in range(i+1, n):
+        for j in range(i + 1, n):
             if a[min_index] > a[j]:
                 min_index = j
         a[i], a[min_index] = a[min_index], a[i]
@@ -30,6 +29,7 @@ class InsertionSortTestCase(unittest.TestCase):
             sorted_arr = sorted(arr)
             selection_sort(arr)
             self.assertEqual(arr, sorted_arr)
+
 
 if __name__ == '__main__':
     unittest.main()

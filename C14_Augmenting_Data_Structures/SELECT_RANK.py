@@ -5,7 +5,7 @@ def os_select(x, i):
     elif i < r:
         return os_select(x.left, i)
     else:
-        return os_select(x.right, i-r)
+        return os_select(x.right, i - r)
 
 
 def os_rank(T, x):

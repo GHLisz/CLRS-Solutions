@@ -6,7 +6,7 @@ class DoublyLinkedList:
         self.head = -1
         self.free = 0
         self.key_array = [0 for _ in range(10)]
-        self.next_array = [i+1 for i in range(10)]
+        self.next_array = [i + 1 for i in range(10)]
         self.next_array[-1] = -1
         self.prev_array = [0 for _ in range(10)]
 
@@ -87,6 +87,7 @@ class ProblemTestCase(unittest.TestCase):
         x = list_search(L, 3)
         list_delete(L, x)
         self.assertEqual(self.list_to_str(L), '5 4 2 1')
+
 
 if __name__ == '__main__':
     unittest.main()

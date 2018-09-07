@@ -60,5 +60,6 @@ class ProblemTestCase(unittest.TestCase):
         list_delete(L, node_to_del)
         self.assertEqual(self.list_to_str(L.head), '5 4 2 1')
 
+
 if __name__ == '__main__':
     unittest.main()

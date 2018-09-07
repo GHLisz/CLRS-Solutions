@@ -5,6 +5,7 @@ def minimum(A):
             m = val
     return m
 
+
 if __name__ == '__main__':
     a = [1, 3, 5, 4, 6]
     print(minimum(a) == 1)

@@ -30,8 +30,8 @@ def partition(A, p, r):
         if A[j] <= x:
             i += 1
             A[i], A[j] = A[j], A[i]
-    A[i+1], A[r] = A[r], A[i+1]
-    return i+1
+    A[i + 1], A[r] = A[r], A[i + 1]
+    return i + 1
 
 
 class SelectTestCase(unittest.TestCase):
@@ -40,7 +40,7 @@ class SelectTestCase(unittest.TestCase):
             a = [random.randint(1, 1000000) for _ in range(random.randint(1, 1000))]
             i = random.randint(1, len(a))
             b = sorted(a)
-            self.assertTrue(randomized_select_iterative(a, 0, len(a)-1, i), b[i-1])
+            self.assertTrue(randomized_select_iterative(a, 0, len(a) - 1, i), b[i - 1])
 
 
 if __name__ == '__main__':

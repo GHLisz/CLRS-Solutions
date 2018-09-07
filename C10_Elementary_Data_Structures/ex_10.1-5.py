@@ -10,7 +10,7 @@ class Deque:
         self.back = 0
 
     def push_front(self, x):
-        if (self.back+1) % self.length == self.front:
+        if (self.back + 1) % self.length == self.front:
             raise Exception('overflow')
         self.front -= 1
         if self.front == -1:
@@ -18,7 +18,7 @@ class Deque:
         self.Q[self.front] = x
 
     def push_back(self, x):
-        if (self.back+1) % self.length == self.front:
+        if (self.back + 1) % self.length == self.front:
             raise Exception('overflow')
         self.Q[self.back] = x
         self.back += 1

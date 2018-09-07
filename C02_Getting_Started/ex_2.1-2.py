@@ -7,9 +7,9 @@ def insertion_sort_nonincreasing(a):
         key = a[j]
         i = j - 1
         while i >= 0 and a[i] < key:
-            a[i+1] = a[i]
+            a[i + 1] = a[i]
             i -= 1
-        a[i+1] = key
+        a[i + 1] = key
 
 
 class InsertionSortTestCase(unittest.TestCase):
@@ -23,6 +23,7 @@ class InsertionSortTestCase(unittest.TestCase):
             sorted_arr.reverse()
             insertion_sort_nonincreasing(arr)
             self.assertEqual(arr, sorted_arr)
+
 
 if __name__ == '__main__':
     unittest.main()

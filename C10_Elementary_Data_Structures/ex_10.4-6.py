@@ -4,7 +4,7 @@ import unittest
 class Node:
     def __init__(self, key):
         self.key = key
-        self.is_last_sibling = False   # indicate if the node is the last sibling
+        self.is_last_sibling = False  # indicate if the node is the last sibling
         self.left_child = None
         self.next = None  # if the node is last sibling, it points to parent, else it points to right sibling
 

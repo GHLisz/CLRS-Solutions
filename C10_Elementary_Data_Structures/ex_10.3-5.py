@@ -6,7 +6,7 @@ class DoublyLinkedList:
         self.head = -1
         self.free = 0
         self.key_array = [0 for _ in range(10)]
-        self.next_array = [i+1 for i in range(10)]
+        self.next_array = [i + 1 for i in range(10)]
         self.next_array[-1] = -1
         self.prev_array = [0 for _ in range(10)]
 
@@ -20,7 +20,7 @@ def compactify_list(L):
         L.prev_array[cur] = -2
         cur = L.next_array[cur]
 
-    left, right = 0, len(L.key_array)-1
+    left, right = 0, len(L.key_array) - 1
     while True:
         while L.prev_array[left] != -2:
             left += 1
@@ -49,8 +49,8 @@ def compactify_list(L):
         if L.next_array[x] >= right:
             L.next_array[x] = L.next_array[L.next_array[x]]
 
-    for x in range(right, len(L.key_array)-1):
-        L.next_array[x] = x+1
+    for x in range(right, len(L.key_array) - 1):
+        L.next_array[x] = x + 1
     L.next_array[x] = -1
 
     L.free = right
@@ -138,6 +138,7 @@ class ProblemTestCase(unittest.TestCase):
         list_delete(L, x)
         compactify_list(L)
         self.assertEqual(self.list_to_str(L), '5 4 1')
+
 
 if __name__ == '__main__':
     unittest.main()

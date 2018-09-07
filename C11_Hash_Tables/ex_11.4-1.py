@@ -1,7 +1,6 @@
 import random
 import unittest
 
-
 m = 11
 
 
@@ -10,7 +9,7 @@ def aux_hash(k):
 
 
 def aux_hash2(k):
-    return 1 + (k % (m-1))
+    return 1 + (k % (m - 1))
 
 
 class OpenAddressing:
@@ -45,7 +44,7 @@ class QuadraticProbing(OpenAddressing):
         OpenAddressing.__init__(self)
 
     def h(self, k, i):
-        return (aux_hash(k) + i + 3*i*i) % m
+        return (aux_hash(k) + i + 3 * i * i) % m
 
 
 class DoubleHashing(OpenAddressing):
